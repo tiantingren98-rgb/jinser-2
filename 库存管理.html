@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-CN"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;📦 电商库存管理 (共享版)&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 全部样式代码（与之前完全一致） */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { background: #f4f6fa; min-height: 100vh; display: flex; justify-content: center; padding: 30px 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.app-container { width: 1300px; max-width: 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 28px; gap: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-left h1 { font-size: 28px; font-weight: 700; color: #0b1a33; display: flex; align-items: center; gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-left h1 span { background: #2a6df4; color: #fff; font-size: 14px; font-weight: 500; padding: 2px 14px; border-radius: 30px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-left p { color: #5e6f8d; font-size: 15px; margin-top: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stats { display: flex; gap: 20px; background: #fff; padding: 10px 24px; border-radius: 60px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); flex-wrap: wrap; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stats-item { display: flex; align-items: baseline; gap: 6px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stats-item .num { font-weight: 700; font-size: 20px; color: #0b1a33; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stats-item .label { color: #6f7d98; font-size: 14px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background: #fff; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.05); padding: 24px 28px 28px; margin-bottom: 28px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-title { font-size: 16px; font-weight: 600; color: #1a2a44; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.hint-text { font-size: 13px; font-weight: 400; color: #6f7d98; margin-left: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-row { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: flex-end; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group { display: flex; flex-direction: column; flex: 1 0 140px; min-width: 120px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group label { font-size: 13px; font-weight: 500; color: #3d4e6b; margin-bottom: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group input, .form-group select { padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 14px; background: #fafcff; transition: 0.2s; color: #0b1a33; width: 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group input:focus, .form-group select:focus { outline: none; border-color: #2a6df4; box-shadow: 0 0 0 3px rgba(42,109,244,0.15); background: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn { padding: 10px 24px; border: none; border-radius: 12px; font-weight: 600; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; background: #eef2f7; color: #1a2a44; white-space: nowrap; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary { background: #2a6df4; color: #fff; box-shadow: 0 4px 12px rgba(42,109,244,0.25); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-primary:hover { background: #1a5adf; transform: translateY(-1px); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-success { background: #0f973d; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-success:hover { background: #0c7f33; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-danger { background: #e53e3e; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-danger:hover { background: #c53030; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-outline { background: transparent; border: 1.5px solid #d0d9e8; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-outline:hover { background: #f0f4fe; border-color: #a0b3d0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-warning { background: #d69e2e; color: #fff; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-warning:hover { background: #b7791f; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-sm { padding: 6px 14px; font-size: 13px; border-radius: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toolbar { display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center; margin-bottom: 18px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toolbar .search-box { flex: 1 0 200px; display: flex; align-items: center; background: #f2f5fb; border-radius: 30px; padding: 0 16px; border: 1.5px solid transparent; transition: 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toolbar .search-box:focus-within { border-color: #2a6df4; background: #fff; box-shadow: 0 0 0 3px rgba(42,109,244,0.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toolbar .search-box input { border: none; background: transparent; padding: 10px 12px; font-size: 14px; width: 100%; outline: none; color: #0b1a33; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toolbar .search-box .icon { color: #7f8ea8; font-size: 18px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-group { display: flex; gap: 10px; flex-wrap: wrap; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-group select { padding: 9px 14px; border: 1.5px solid #e2e8f0; border-radius: 30px; font-size: 13px; background: #fff; color: #1a2a44; outline: none; cursor: pointer; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.filter-group select:focus { border-color: #2a6df4; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.clear-filter { background: none; border: none; color: #7f8ea8; font-size: 13px; cursor: pointer; padding: 0 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.clear-filter:hover { color: #e53e3e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.share-actions { display: flex; gap: 10px; margin-left: auto; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid #edf2f7; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>thead { background: #f8faff; border-bottom: 2px solid #e9eef5; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>thead th { text-align: left; padding: 14px 16px; font-weight: 600; color: #2a3f5e; font-size: 13px; white-space: nowrap; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody tr { border-bottom: 1px solid #edf2f7; transition: background 0.15s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody tr:hover { background: #fafdff; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody td { padding: 14px 16px; vertical-align: middle; color: #1f2e4a; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.sku-group-cell { background: #f4f9ff; border-right: 2px solid #dce5f0; font-weight: 700; font-size: 15px; color: #0b1a33; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.color-dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.06); vertical-align: middle; margin-right: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.size-tag { background: #f0f3f9; padding: 2px 12px; border-radius: 30px; font-weight: 500; font-size: 13px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-num { font-weight: 700; font-size: 16px; color: #0b1a33; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-low { color: #e53e3e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-medium { color: #d69e2e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.stock-high { color: #0f973d; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-group { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.action-group .btn { padding: 4px 12px; font-size: 13px; border-radius: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-icon { background: none; border: none; font-size: 18px; cursor: pointer; padding: 4px 6px; border-radius: 6px; transition: 0.2s; color: #5e6f8d; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-icon:hover { background: #f0f4fe; color: #1a2a44; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-icon.danger:hover { background: #fee8e8; color: #e53e3e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.empty-state { text-align: center; padding: 50px 20px; color: #7f8ea8; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.empty-state .big-icon { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.empty-state h3 { color: #1a2a44; margin-bottom: 4px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#fileInput { display: none; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast { position: fixed; bottom: 30px; right: 30px; background: #0b1a33; color: #fff; padding: 14px 28px; border-radius: 60px; font-weight: 500; font-size: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); opacity: 0; transform: translateY(20px) scale(0.95); transition: 0.3s cubic-bezier(0.22,1,0.36,1); pointer-events: none; z-index: 999; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast.show { opacity: 1; transform: translateY(0) scale(1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast.success { background: #0f973d; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.toast.error { background: #e53e3e; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 700px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.header { flex-direction: column; align-items: stretch; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.stats { justify-content: space-around; border-radius: 20px; padding: 12px 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.card { padding: 18px 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.form-group { flex: 1 0 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.toolbar { flex-direction: column; align-items: stretch; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.share-actions { margin-left: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>table { font-size: 13px; min-width: 600px; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>thead th, tbody td { padding: 10px 12px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;div class="app-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;📦 库存管理 &lt;span&gt;共享版&lt;/span&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;同一 SKU 下可管理多个颜色 · 尺码变体 · 支持导入导出共享&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stats" id="statsBar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stats-item"&gt;&lt;span class="num" id="totalProducts"&gt;0&lt;/span&gt;&lt;span class="label"&gt;产品 (SKU)&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stats-item"&gt;&lt;span class="num" id="totalVariants"&gt;0&lt;/span&gt;&lt;span class="label"&gt;变体&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stats-item"&gt;&lt;span class="num" id="totalStock"&gt;0&lt;/span&gt;&lt;span class="label"&gt;总库存&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stats-item"&gt;&lt;span class="num" id="lowStockCount"&gt;0&lt;/span&gt;&lt;span class="label"&gt;低库存&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-title"&gt;➕ 新增变体 &lt;span class="hint-text"&gt;— 输入已有的 SKU 将自动添加为该产品的新颜色/尺码&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-row" id="addForm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;&lt;label&gt;SKU *&lt;/label&gt;&lt;input type="text" id="inputSku" placeholder="例如: TS-001" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;&lt;label&gt;颜色 *&lt;/label&gt;&lt;input type="text" id="inputColor" placeholder="例如: 黑色" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;&lt;label&gt;尺码 *&lt;/label&gt;&lt;input type="text" id="inputSize" placeholder="例如: M / 42" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;&lt;label&gt;库存数量&lt;/label&gt;&lt;input type="number" id="inputStock" value="10" min="0" /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group" style="flex: 0 0 auto; min-width: auto;"&gt;&lt;button class="btn btn-primary" id="addBtn"&gt;➕ 添加变体&lt;/button&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card-title" style="justify-content: space-between; flex-wrap: wrap; gap: 10px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;📋 库存列表（按 SKU 分组）&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="display: flex; gap: 8px; flex-wrap: wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn btn-warning btn-sm" id="exportBtn"&gt;📤 导出备份&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn btn-outline btn-sm" id="importBtn"&gt;📥 导入数据&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="file" id="fileInput" accept=".json" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="toolbar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="search-box"&gt;&lt;span class="icon"&gt;🔍&lt;/span&gt;&lt;input type="text" id="searchInput" placeholder="搜索 SKU、颜色、尺码..." /&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="filter-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="filterColor"&gt;&lt;option value=""&gt;所有颜色&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="filterSize"&gt;&lt;option value=""&gt;所有尺码&lt;/option&gt;&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="clear-filter" id="clearFilters"&gt;✕ 清除筛选&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="share-actions"&gt;&lt;span style="font-size:13px; color:#6f7d98;"&gt;💡 导出后发给同事导入&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="table-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;&lt;tr&gt;&lt;th style="width:18%;"&gt;SKU&lt;/th&gt;&lt;th style="width:20%;"&gt;颜色&lt;/th&gt;&lt;th style="width:16%;"&gt;尺码&lt;/th&gt;&lt;th style="width:14%; text-align:center;"&gt;库存&lt;/th&gt;&lt;th style="width:22%; text-align:center;"&gt;调整&lt;/th&gt;&lt;th style="width:10%; text-align:right;"&gt;操作&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody id="inventoryBody"&gt;&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div style="text-align: center; color: #9aabbf; font-size: 13px; margin-top: 8px;"&gt;数据自动保存在浏览器本地 · 导出 JSON 文件即可分享给同事&lt;/div&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p1">&lt;div class="toast" id="toast"&gt;&lt;/div&gt;</p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">(function() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>'use strict';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const STORAGE_KEY = 'inventory_data';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const defaultData = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 1, sku: 'TS-001', color: '黑色', size: 'M', stock: 23 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 2, sku: 'TS-001', color: '黑色', size: 'L', stock: 15 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 3, sku: 'TS-002', color: '白色', size: 'S', stock: 8 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 4, sku: 'TS-002', color: '白色', size: 'M', stock: 31 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 5, sku: 'SHOE-001', color: '红色', size: '42', stock: 5 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 6, sku: 'SHOE-001', color: '红色', size: '43', stock: 12 },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ id: 7, sku: 'CAP-001', color: '藏青', size: '均码', stock: 18 },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let inventory = [];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let nextId = 1;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let searchTerm = '', filterColor = '', filterSize = '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const tbody = document.getElementById('inventoryBody');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalProductsEl = document.getElementById('totalProducts');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalVariantsEl = document.getElementById('totalVariants');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const totalStockEl = document.getElementById('totalStock');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const lowStockCountEl = document.getElementById('lowStockCount');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const inputSku = document.getElementById('inputSku');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const inputColor = document.getElementById('inputColor');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const inputSize = document.getElementById('inputSize');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const inputStock = document.getElementById('inputStock');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const addBtn = document.getElementById('addBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const searchInput = document.getElementById('searchInput');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const filterColorEl = document.getElementById('filterColor');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const filterSizeEl = document.getElementById('filterSize');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const clearFiltersBtn = document.getElementById('clearFilters');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const exportBtn = document.getElementById('exportBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const importBtn = document.getElementById('importBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const fileInput = document.getElementById('fileInput');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const toastEl = document.getElementById('toast');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function loadData() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const stored = localStorage.getItem(STORAGE_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (stored) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const parsed = JSON.parse(stored);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (Array.isArray(parsed) &amp;&amp; parsed.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>inventory = parsed;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const maxId = inventory.reduce((max, item) =&gt; Math.max(max, item.id || 0), 0);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>nextId = maxId + 1;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch(e) {}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inventory = defaultData.map(item =&gt; ({...item}));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nextId = inventory.reduce((max, item) =&gt; Math.max(max, item.id || 0), 0) + 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(inventory)); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let toastTimer = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showToast(message, type='success') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toastEl.textContent = message;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toastEl.className = 'toast ' + type;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>void toastEl.offsetWidth;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toastEl.classList.add('show');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>clearTimeout(toastTimer);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>toastTimer = setTimeout(() =&gt; { toastEl.classList.remove('show'); }, 2200);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function addItem(sku, color, size, stock) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!sku.trim() || !color.trim() || !size.trim()) { showToast('请完整填写 SKU、颜色、尺码', 'error'); return false; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const stockNum = parseInt(stock) || 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (stockNum &lt; 0) { showToast('库存不能为负数', 'error'); return false; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const skuTrim = sku.trim(), colorTrim = color.trim(), sizeTrim = size.trim();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const exist = inventory.find(item =&gt; item.sku === skuTrim &amp;&amp; item.color === colorTrim &amp;&amp; item.size === sizeTrim);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (exist) { showToast(`该变体已存在 (${skuTrim} · ${colorTrim} · ${sizeTrim})`, 'error'); return false; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const skuExists = inventory.some(item =&gt; item.sku === skuTrim);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const newItem = { id: nextId++, sku: skuTrim, color: colorTrim, size: sizeTrim, stock: stockNum };</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inventory.push(newItem);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast(skuExists ? `✅ 已为 SKU「${skuTrim}」添加新变体 (${colorTrim} · ${sizeTrim})` : `✅ 已添加新产品 SKU「${skuTrim}」`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return true;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function deleteItem(id) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item = inventory.find(i =&gt; i.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!item) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!confirm(`确定要删除变体「${item.sku} · ${item.color} · ${item.size}」吗？`)) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>inventory = inventory.filter(i =&gt; i.id !== id);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast('已删除该变体', 'success');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateStock(id, delta) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const item = inventory.find(i =&gt; i.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (!item) return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const newStock = item.stock + delta;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (newStock &lt; 0) { showToast('库存不能为负数', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>item.stock = newStock;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function exportData() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (inventory.length === 0) { showToast('暂无数据可导出', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const dataStr = JSON.stringify(inventory, null, 2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const blob = new Blob([dataStr], { type: 'application/json' });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const url = URL.createObjectURL(blob);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const a = document.createElement('a');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.href = url;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.download = `inventory_backup_${new Date().toISOString().slice(0,10)}.json`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.body.appendChild(a);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a.click();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.body.removeChild(a);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>URL.revokeObjectURL(url);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showToast('✅ 导出成功，请保存好文件');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function importData(file) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const reader = new FileReader();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reader.onload = function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const imported = JSON.parse(e.target.result);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!Array.isArray(imported) || imported.length === 0) { showToast('文件格式错误或为空', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!imported[0].sku || !imported[0].color || !imported[0].size) { showToast('数据格式不匹配，请检查文件', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (!confirm(`即将导入 ${imported.length} 条数据，当前数据将被覆盖。是否继续？`)) return;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>inventory = imported.map((item, index) =&gt; ({...item, id: nextId + index}));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>nextId = nextId + imported.length;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showToast(`✅ 成功导入 ${imported.length} 条数据`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch(err) { showToast('导入失败：文件解析错误', 'error'); console.error(err); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>reader.readAsText(file);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fileInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getFilteredData() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let result = [...inventory];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (searchTerm.trim()) { const term = searchTerm.trim().toLowerCase(); result = result.filter(item =&gt; item.sku.toLowerCase().includes(term) || item.color.toLowerCase().includes(term) || item.size.toLowerCase().includes(term)); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (filterColor) { result = result.filter(item =&gt; item.color === filterColor); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (filterSize) { result = result.filter(item =&gt; item.size === filterSize); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return result;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderStats(data) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const uniqueSkus = new Set(data.map(d =&gt; d.sku));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalProductsEl.textContent = uniqueSkus.size;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalVariantsEl.textContent = data.length;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>totalStockEl.textContent = data.reduce((sum, item) =&gt; sum + item.stock, 0);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>lowStockCountEl.textContent = data.filter(item =&gt; item.stock &lt;= 5).length;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function getColorHex(color) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const map = { '黑色':'#1a1a2e','白色':'#f0f0f0','红色':'#e53e3e','蓝色':'#2a6df4','绿色':'#0f973d','黄色':'#d69e2e','紫色':'#805ad5','橙色':'#ed8936','粉色':'#ed64a6','灰色':'#a0aec0','藏青':'#1e2a4a','棕色':'#8b6b4b','米色':'#f5e6d3','金色':'#d4af37','银色':'#c0c0c0' };</p>
+<p class="p1"><span class="Apple-converted-space">        </span>return map[color] || '#cccccc';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function escHtml(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderTable(data) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (data.length === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tbody.innerHTML = `&lt;tr&gt;&lt;td colspan="6"&gt;&lt;div class="empty-state"&gt;&lt;div class="big-icon"&gt;📭&lt;/div&gt;&lt;h3&gt;暂无匹配的库存记录&lt;/h3&gt;&lt;p style="color:#7f8ea8;"&gt;尝试调整筛选条件，或点击上方「新增变体」添加&lt;/p&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const groups = {};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>data.forEach(item =&gt; { if (!groups[item.sku]) groups[item.sku] = []; groups[item.sku].push(item); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sortedSkus = Object.keys(groups).sort();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let html = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sortedSkus.forEach(sku =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const items = groups[sku];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>items.sort((a,b) =&gt; a.color.localeCompare(b.color) || a.size.localeCompare(b.size));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>items.forEach((item, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const stockClass = item.stock &lt;= 5 ? 'stock-low' : (item.stock &lt;= 15 ? 'stock-medium' : 'stock-high');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const colorStyle = `background-color: ${getColorHex(item.color)};`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (index === 0) html += `&lt;td rowspan="${items.length}" class="sku-group-cell" style="vertical-align: middle;"&gt;${escHtml(sku)}&lt;/td&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>html += `&lt;td&gt;&lt;span class="color-dot" style="${colorStyle}"&gt;&lt;/span&gt;${escHtml(item.color)}&lt;/td&gt;&lt;td&gt;&lt;span class="size-tag"&gt;${escHtml(item.size)}&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align:center;"&gt;&lt;span class="stock-num ${stockClass}"&gt;${item.stock}&lt;/span&gt;&lt;/td&gt;&lt;td style="text-align:center;"&gt;&lt;div class="action-group"&gt;&lt;button class="btn btn-success btn-sm" data-action="inc" data-id="${item.id}"&gt;+1&lt;/button&gt;&lt;button class="btn btn-danger btn-sm" data-action="dec" data-id="${item.id}"&gt;−1&lt;/button&gt;&lt;button class="btn btn-outline btn-sm" data-action="set" data-id="${item.id}"&gt;✎&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;td style="text-align:right;"&gt;&lt;button class="btn-icon danger" data-action="delete" data-id="${item.id}" title="删除变体"&gt;🗑&lt;/button&gt;&lt;/td&gt;&lt;/tr&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody.innerHTML = html;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tbody.querySelectorAll('[data-action]').forEach(btn =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.addEventListener('click', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>e.stopPropagation();</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const action = this.dataset.action;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const id = parseInt(this.dataset.id);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (action === 'delete') deleteItem(id);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (action === 'inc') updateStock(id, 1);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (action === 'dec') updateStock(id, -1);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else if (action === 'set') {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const item = inventory.find(i =&gt; i.id === id);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (!item) return;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const newVal = prompt(`设置 ${item.sku} · ${item.color} · ${item.size} 的库存数量:`, item.stock);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (newVal === null) return;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const num = parseInt(newVal);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (isNaN(num) || num &lt; 0) { showToast('请输入有效的非负整数', 'error'); return; }</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>item.stock = num;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>saveData();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>showToast(`✅ 已更新库存为 ${num}`);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateFilterOptions() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const colors = [...new Set(inventory.map(item =&gt; item.color))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const currentColor = filterColor;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>filterColorEl.innerHTML = '&lt;option value=""&gt;所有颜色&lt;/option&gt;' + colors.map(c =&gt; `&lt;option value="${escHtml(c)}" ${c === currentColor ? 'selected' : ''}&gt;${escHtml(c)}&lt;/option&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sizes = [...new Set(inventory.map(item =&gt; item.size))].sort();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const currentSize = filterSize;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>filterSizeEl.innerHTML = '&lt;option value=""&gt;所有尺码&lt;/option&gt;' + sizes.map(s =&gt; `&lt;option value="${escHtml(s)}" ${s === currentSize ? 'selected' : ''}&gt;${escHtml(s)}&lt;/option&gt;`).join('');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderAll() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const data = getFilteredData();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderStats(data);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>renderTable(data);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateFilterOptions();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>filterColorEl.value = filterColor;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>filterSizeEl.value = filterSize;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>addBtn.addEventListener('click', function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const sku = inputSku.value, color = inputColor.value, size = inputSize.value, stock = inputStock.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const success = addItem(sku, color, size, stock);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (success) { inputSku.value = ''; inputColor.value = ''; inputSize.value = ''; inputStock.value = '10'; inputSku.focus(); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('#inputSku, #inputColor, #inputSize, #inputStock').forEach(el =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>el.addEventListener('keydown', function(e) { if (e.key === 'Enter') addBtn.click(); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>searchInput.addEventListener('input', function() { searchTerm = this.value; renderAll(); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>filterColorEl.addEventListener('change', function() { filterColor = this.value; renderAll(); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>filterSizeEl.addEventListener('change', function() { filterSize = this.value; renderAll(); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>clearFiltersBtn.addEventListener('click', function() { searchInput.value = ''; searchTerm = ''; filterColor = ''; filterSize = ''; renderAll(); showToast('已清除所有筛选', 'success'); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>exportBtn.addEventListener('click', exportData);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>importBtn.addEventListener('click', function() { fileInput.click(); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>fileInput.addEventListener('change', function(e) { if (this.files &amp;&amp; this.files.length &gt; 0) importData(this.files[0]); });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelector('.stats')?.addEventListener('dblclick', function() { clearFiltersBtn.click(); });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>loadData();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>renderAll();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>console.log('📦 库存管理 (共享版) 已启动 — 支持导入导出');</p>
+<p class="p1">})();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
